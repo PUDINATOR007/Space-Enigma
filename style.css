@@ -1,0 +1,38 @@
+body {
+	background-color: black;
+	text-align: center;
+	color: white;
+	}
+	
+	#icone-enigma {
+		margin-top: 30px;
+		margin-bottom: 20px;
+		border: 2px solid darkgray;
+		}
+		
+	#botão-iniciar {
+		color: white;
+		background-color: #333;
+		border: none;
+		border-radius: 7px;
+		font-size: 20px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 40px;
+		padding-right: 40px;
+		margin-bottom: 20px;
+		}
+		
+	.container {
+		background-color: #333;
+		border-radius: 20px;
+		padding-bottom: 20px
+		}
+	
+	#dica-enigma {
+		}
+		
+	#regras {
+		text-align: left;
+		}
+	 
