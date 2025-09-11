@@ -1,78 +1,106 @@
 <!doctype html>
-	<html>
-		<head>
-			<title> Space Enigma </title>
-			<style>
-				body {
-	background-color: black;
-	text-align: center;
-	color: white;
-	}
-	
-	#icone-enigma {
-		margin-top: 30px;
-		margin-bottom: 20px;
-		border: 2px solid darkgray;
-		}
-		
-	#botão-iniciar {
-		color: white;
-		background-color: #333;
-		border: none;
-		border-radius: 7px;
-		font-size: 20px;
-		padding-top: 10px;
-		padding-bottom: 10px;
-		padding-left: 40px;
-		padding-right: 40px;
-		margin-bottom: 20px;
-		}
-		
-	.container {
-		background-color: #333;
-		border-radius: 20px;
-		padding-bottom: 20px
-		}
-	
-	#dica-enigma {
-		}
-		
-	#regras {
-		text-align: left;
-		}
-	 </style>
-		</head>
-		<body>
-			<div>
-			<img id="icone-enigma" src="Space-Enigma.png" width = "1000" height = "1000">
-			<br>
-			<button id="botão-iniciar"> começar </button>
-			</div>
-			<div class="container">
-			<br>
-			<h1> Bem-vindo ao Space Enigma! </h1>
-			<br>
-			<p> O Space Enigma é um desafio exclusivo para os membros da Space Studios, cheio de referências e Easter Eggs 🥞 da nossa comunidade. </p>
-			
-			<p> Para quem faz parte da Space, o objetivo é simples: desvendar os enigmas AO VIVO em live! </p>
-			<br>
-			<h2> como funciona: </h2>
-			<p> Serão 10 enigmas no total. <br>
-				Você deverá encontrar a resposta de cada um deles. <br>
-				Após escrever a resposta na caixa de resposta, passará automaticamente para o próximo enigma. </p>
-			<br>
-			<h2> dicas: </h2>
-			<p> Cada enigma possui 1 dica disponivel. <br>
-				Para usa-la, basta clicar no ícone de dica: <br>
-					<img id="dica-enigma" src="dica.png" width = "500" height = "500"> <br>
-						Não hesite em usar, as dicas podem ser essenciais para a sua jornada! </p>
-			<br>
-			<h2> regras: </h2>
-			 <div id="regras">
-			  <p> Não use o GPT o tempo todo. Ele pode estragar a experiência. Use apenas com moderação, para tirar pequenas dúvidas.</p>
-		  	<p> 2. Não compartilhe as respostas com outros usuários, isso tira a graça do desafio. </p>
-	  		<p> 3. Todos os membros da Space devem participar do enigma. </p>
-	  		<p> 4. O enigma só poderá ser avançado durante as lives. </p>
-	         </div>
-			</div>
-			
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Enigma</title>
+  <style>
+  	body {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  margin: 30px 0 20px;
+}
+
+#icone-enigma {
+  border: 2px solid darkgray;
+  border-radius: 12px;
+}
+
+#botao-iniciar {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 40px;
+  font-size: 20px;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#botao-iniciar:hover {
+  background-color: #555;
+}
+
+.container {
+  background-color: #333;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+#dica-enigma {
+  margin: 10px 0;
+}
+
+#regras {
+  text-align: left;
+  padding-left: 20px;
+}
+
+#regras li {
+  margin-bottom: 8px;
+}
+</style>
+</head>
+<body>
+  <header>
+    <img id="icone-enigma" src="Space-Enigma.png" alt="Ícone do Space Enigma" width="200" height="200">
+    <br>
+    <button id="botao-iniciar">Começar</button>
+  </header>
+
+  <main class="container">
+    <h1>Bem-vindo ao Space Enigma!</h1>
+    <p>O Space Enigma é um desafio exclusivo para os membros da Space Studios, cheio de referências e Easter Eggs 🥞 da nossa comunidade.</p>
+    <p>Para quem faz parte da Space, o objetivo é simples: desvendar os enigmas AO VIVO em live!</p>
+
+    <section>
+      <h2>Como funciona:</h2>
+      <p>
+        Serão 10 enigmas no total.<br>
+        Você deverá encontrar a resposta de cada um deles.<br>
+        Após escrever a resposta na caixa de resposta, passará automaticamente para o próximo enigma.
+      </p>
+    </section>
+
+    <section>
+      <h2>Dicas:</h2>
+      <p>
+        Cada enigma possui 1 dica disponível.<br>
+        Para usá-la, basta clicar no ícone de dica:
+      </p>
+      <img id="dica-enigma" src="dica.png" alt="Ícone de dica" width="100" height="100">
+      <p>Não hesite em usar, as dicas podem ser essenciais para a sua jornada!</p>
+    </section>
+
+    <section>
+      <h2>Regras:</h2>
+      <ul id="regras">
+        <li>Não use o GPT o tempo todo. Ele pode estragar a experiência. Use apenas com moderação, para tirar pequenas dúvidas.</li>
+        <li>Não compartilhe as respostas com outros usuários, isso tira a graça do desafio.</li>
+        <li>Todos os membros da Space devem participar do enigma.</li>
+        <li>O enigma só poderá ser avançado durante as lives.</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
