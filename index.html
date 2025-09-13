@@ -3,107 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <title>Space Enigma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
   <style>
-  	body {
-  background-color: #000;
-  color: #fff;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Fundo estrelado animado */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://www.transparenttextures.com/patterns/stardust.png");
+      opacity: 0.3;
+      animation: moveStars 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    header {
+      margin: 30px 0 20px;
+    }
+
+    #icone-enigma {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.6);
+    }
+
+    /* Botão neon */
+    #botao-iniciar {
+      margin-top: 20px;
+      padding: 12px 50px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      background: none;
+      border: 2px solid #00f0ff;
+      border-radius: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px #00f0ff;
+    }
+
+    #botao-iniciar:hover {
+      background: #00f0ff;
+      color: #000;
+      box-shadow: 0 0 25px #00f0ff;
+      transform: scale(1.05);
+    }
+
+    /* Container futurista */
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 25px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+    }
+
+    section h2 {
+      color: #00f0ff;
+      text-shadow: 0 0 8px #00f0ff;
+    }
+
+    #dica-enigma {
+      margin: 10px 0;
+      filter: drop-shadow(0 0 10px #ff0);
+    }
+
+    #regras {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    #regras li {
+      margin-bottom: 8px;
+    }
+
+    a img {
+      margin-top: 10px;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    a img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    h3, h4 {
+      color: #aaa;
+    }
+    
+    /* Modal (tela de código) */
+#modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  padding: 0;
+  box-shadow: 0 0 25px rgba(0,200,255,0.4);
 }
 
-header {
-  margin: 30px 0 20px;
+.modal-content h2 {
+  color: #00f0ff;
+  margin-bottom: 15px;
+  text-shadow: 0 0 8px #00f0ff;
 }
 
-#icone-enigma {
-  border: 2px solid darkgray;
-  border-radius: 12px;
-}
-
-#botao-iniciar {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 40px;
-  font-size: 20px;
+.modal-content input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #00f0ff;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.6);
   color: #fff;
-  background-color: #333;
+}
+
+.modal-content button {
+  padding: 10px 30px;
   border: none;
   border-radius: 8px;
+  background: #00f0ff;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-#botao-iniciar:hover {
-  background-color: #555;
+.modal-content button:hover {
+  background: #00c4cc;
+  transform: scale(1.05);
 }
-
-.container {
-  background-color: #333;
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto 40px;
-}
-
-#dica-enigma {
-  margin: 10px 0;
-}
-
-#regras {
-  text-align: left;
-  padding-left: 20px;
-}
-
-#regras li {
-  margin-bottom: 8px;
-}
-</style>
+    
+  </style>
 </head>
 <body>
   <header>
-    <img id="icone-enigma" src="Space-Enigma.png" alt="Ã­cone do Space Enigma" width="200" height="200">
+    <img id="icone-enigma" src="Space-Enigma.png" alt="Ícone do Space Enigma" width="200" height="200">
     <br>
-    <button id="botao-iniciar">ComeÃ§ar</button>
+    <button id="botao-iniciar">Começar</button>
   </header>
+  
+  <!-- Modal (aparece ao clicar em "Começar") -->
+<div id="modal">
+  <div class="modal-content">
+    <h2>Digite o código de entrada</h2>
+    <input type="password" id="codigoEntrada" placeholder="Insira o código">
+    <br>
+    <button onclick="verificarCodigo()">Entrar</button>
+  </div>
+</div>
 
   <main class="container">
     <h1>Bem-vindo ao Space Enigma!</h1>
-    <p>O Space Enigma Ã© um desafio exclusivo para os membros da Space Studios, cheio de referencias e Easter Eggs da nossa comunidade.</p>
-    <p>Para quem faz parte da Space, o objetivo Ã© simples: desvendar os enigmas AO VIVO em live!</p>
+    <p>O Space Enigma é um desafio exclusivo para os membros da Space Studios, cheio de referências e Easter Eggs da nossa comunidade.</p>
+    <p>Para quem faz parte da Space, o objetivo é simples: desvendar os enigmas AO VIVO em live!</p>
 
     <section>
       <h2>Como funciona:</h2>
       <p>
-        SerÃ£o 10 enigmas no total.<br>
-        VocÃª deverÃ¡ encontrar a resposta de cada um deles.<br>
-        ApÃ³s escrever a resposta na caixa de resposta, passarÃ¡ automaticamente para o prÃ³ximo enigma.
+        Serão 10 enigmas no total.<br>
+        Você deverá encontrar a resposta de cada um deles.<br>
+        Após escrever a resposta na caixa de resposta, passará automaticamente para o próximo enigma.
       </p>
     </section>
 
     <section>
       <h2>Dicas:</h2>
       <p>
-        Cada enigma possui 1 dica disponÃ­vel.<br>
-        Para usÃ¡-la, basta clicar no Ã­cone de dica:
+        Cada enigma possui 1 dica disponível.<br>
+        Para usá-la, basta clicar no ícone de dica:
       </p>
-      <img id="dica-enigma" src="dica.png" alt="Ã­cone de dica" width="100" height="100">
-      <p>NÃ£o hesite em usar, as dicas podem ser essenciais para a sua jornada!</p>
+      <img id="dica-enigma" src="dica.png" alt="Ícone de dica" width="100" height="100">
+      <p>Não hesite em usar, as dicas podem ser essenciais para a sua jornada!</p>
     </section>
 
     <section>
       <h2>Regras:</h2>
       <ul id="regras">
-        <li>NÃ£o use o GPT o tempo todo. Ele pode estragar a experiÃªncia. Use apenas com moderaÃ§Ã£o, para tirar pequenas dÃºvidas.</li>
-        <li>NÃ£o compartilhe as respostas com outros usuÃ¡rios, isso tira a graÃ§a do desafio.</li>
+        <li>Não use o GPT o tempo todo. Ele pode estragar a experiência. Use apenas com moderação, para tirar pequenas dúvidas.</li>
+        <li>Não compartilhe as respostas com outros usuários, isso tira a graça do desafio.</li>
         <li>Todos os membros da Space devem participar do enigma.</li>
-        <li>O enigma sÃ³ poderÃ¡ ser avanÃ§ado durante as lives.</li>
+        <li>O enigma só poderá ser avançado durante as lives.</li>
       </ul>
     </section>
   </main>
-  <h3> v confira tambÃ©m v </h3> 
-  <a href="https://www.spacestudios.com.br/"><img id="icone-Space" src="Space-Studios.png" alt="Ãcone do Space Studios" width="200" height="200"></a>
-  <h4> Â©Space Studios </h4>
+
+  <h3> v confira também v </h3> 
+  <a href="https://www.spacestudios.com.br/"><img id="icone-Space" src="Space-Studios.png" alt="Ícone do Space Studios" width="200" height="200"></a>
+  <h4> ©Space Studios </h4>
+  
+  
+  <script>
+  const botao = document.getElementById("botao-iniciar");
+  const modal = document.getElementById("modal");
+
+  botao.addEventListener("click", () => {
+    modal.style.display = "flex";
+  });
+
+  function verificarCodigo() {
+    const codigo = document.getElementById("codigoEntrada").value;
+    
+    if (codigo === "0678") { // <-- aqui você define o código certo
+      alert("Código correto! Bem-vindo ao Space Enigma ");
+      modal.style.display = "none";
+      // exemplo: redirecionar
+      // window.location.href = "enigma1.html";
+    } else {
+      alert("Código incorreto! ");
+    }
+  }
+</script>
 </body>
 </html>
