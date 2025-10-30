@@ -192,7 +192,7 @@
     <!-- ======== MODAL ERRO ======== -->
   <div id="modal">
     <div class="modal-content">
-      <h2>Código incorreto! ❌</h2>
+      <h2>Código incorreto!</h2>
       <p>Tente novamente.</p>
       <button onclick="fecharModal()">Fechar</button>
     </div>
@@ -201,8 +201,8 @@
   <!-- ======== MODAL ESPECIAL ======== -->
   <div id="modal2">
     <div class="modal-content">
-      <h2>🔒 Acesso Restrito</h2>
-      <p>Esse código pertence a outro setor.</p>
+      <h2>Código incorreto!</h2>
+      <p>achou mesmo que seria tão fácil assim?</p>
       <button onclick="fecharModal2()">Fechar</button>
     </div>
   </div>
@@ -219,25 +219,32 @@
     
    function verificarCodigo() {
       const codigo = document.getElementById("codigoEntrada").value;
-      
+
       if (codigo === "516627881407") {
         window.location.href = "spaceEnigma2.html";
-      
+
+      } else if (codigo === "071488276651") {
+        document.getElementById("modal2").style.display = "flex"; // Mostra o modal especial
+
       } else {
-        document.getElementById("modal").style.display = "flex"; // Mostra o modal
+        document.getElementById("modal").style.display = "flex"; // Mostra o modal padrão
       }
     }
 
     function fecharModal() {
-      document.getElementById("modal").style.display = "none"; // Esconde o modal
+      document.getElementById("modal").style.display = "none";
     }
-    
+
+    function fecharModal2() {
+      document.getElementById("modal2").style.display = "none";
+    }
+
     window.onclick = function(event) {
-  const modal = document.getElementById("modal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
+      const modal = document.getElementById("modal");
+      const modal2 = document.getElementById("modal2");
+      if (event.target === modal) modal.style.display = "none";
+      if (event.target === modal2) modal2.style.display = "none";
+    }
   </script>
 </body>
 </html>
