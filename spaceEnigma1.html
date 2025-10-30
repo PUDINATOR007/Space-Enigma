@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Space Enigma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Fundo estrelado animado */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://www.transparenttextures.com/patterns/stardust.png");
+      opacity: 0.3;
+      animation: moveStars 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    header {
+      margin: 30px 0 20px;
+    }
+    
+    
+
+    /* Agrupamento da imagem e botão */
+    .container1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #icones {
+      width: 400px;
+      height: 450px;
+      border-radius: 10px;
+      box-shadow: none;
+      border: none;
+      transform: translateX(20px);
+    }
+
+    .botao {
+      padding: 12px 30px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      background: none;
+      border: 2px solid #00f0ff;
+      border-radius: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px #00f0ff;
+    }
+
+    .botao:hover {
+      background: #00f0ff;
+      color: #000;
+      box-shadow: 0 0 25px #00f0ff;
+      transform: scale(1.1);
+    }
+    
+    /* Container */
+#entrada-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 0;
+  background: transparent;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Input */
+#entrada-container input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #00f0ff;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+#entrada-container input:focus {
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+/* Botão */
+#entrada-container button {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  background: #00f0ff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#entrada-container button:hover {
+  background: #00c4cc;
+  transform: scale(1.05);
+}
+
+ /* ======== ESTILO GERAL DO MODAL ======== */
+    #modal, #modal2 {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(6px);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,200,255,0.4);
+      color: #fff;
+    }
+
+    .modal-content h2 {
+      color: #00f0ff;
+      margin-bottom: 15px;
+      text-shadow: 0 0 8px #00f0ff;
+    }
+
+    .modal-content button {
+      padding: 10px 30px;
+      border: none;
+      border-radius: 8px;
+      background: #00f0ff;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal-content button:hover {
+      background: #00c4cc;
+      transform: scale(1.05);
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Space Enigma 1</h2>
+    <div class="container1">
+  	<button class="botao" onclick="ordemDescricao()">&lt;</button>
+      <img id="icones" src="icones-enigma1.png" width="400" height="450" alt="Ícones Enigma 1">
+      <button class="botao" onclick="numeracao()">&gt;</button>
+      <Br>
+    </div>
+  </header>
+  
+  <div id="entrada-container">
+  <input type="password" id="codigoEntrada" placeholder="Insira a resposta">
+    <button onclick="verificarCodigo()">enviar</button>
+  </div>
+  
+    <!-- ======== MODAL ERRO ======== -->
+  <div id="modal">
+    <div class="modal-content">
+      <h2>Código incorreto! ❌</h2>
+      <p>Tente novamente.</p>
+      <button onclick="fecharModal()">Fechar</button>
+    </div>
+  </div>
+
+  <!-- ======== MODAL ESPECIAL ======== -->
+  <div id="modal2">
+    <div class="modal-content">
+      <h2>🔒 Acesso Restrito</h2>
+      <p>Esse código pertence a outro setor.</p>
+      <button onclick="fecharModal2()">Fechar</button>
+    </div>
+  </div>
+  
+  
+  <script>
+    function numeracao() {
+    	window.location.href = "numeracao.html";
+    }
+    
+   function ordemDescricao() {
+    	window.location.href = "ordem-descricao.html";
+    }
+    
+   function verificarCodigo() {
+      const codigo = document.getElementById("codigoEntrada").value;
+      
+      if (codigo === "516627881407") {
+        window.location.href = "spaceEnigma2.html";
+      
+      } else {
+        document.getElementById("modal").style.display = "flex"; // Mostra o modal
+      }
+    }
+
+    function fecharModal() {
+      document.getElementById("modal").style.display = "none"; // Esconde o modal
+    }
+    
+    window.onclick = function(event) {
+  const modal = document.getElementById("modal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+  </script>
+</body>
+</html>

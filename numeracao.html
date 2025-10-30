@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>numeracao</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  
+  <style>
+          body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Fundo estrelado animado */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("https://www.transparenttextures.com/patterns/stardust.png");
+      opacity: 0.3;
+      animation: moveStars 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    header {
+      margin: 30px 0 20px;
+    }
+    
+    #icones {
+      width: 400px;
+      height: 450px;
+      border-radius: 10px;
+      box-shadow: none;
+      border: none;
+    }
+    
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      padding: 25px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+    }
+    
+    .botao-voltar {
+  padding: 10px 25px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background: none;
+  border: 2px solid #00f0ff;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px #00f0ff;
+  margin-bottom: 25px;
+}
+.botao-voltar:hover {
+  background: #00f0ff;
+  color: #000;
+  box-shadow: 0 0 25px #00f0ff;
+  transform: scale(1.05);
+}
+
+.container img {
+  border-radius: 15px;
+  margin-bottom: 30px;
+}
+.container h1 {
+  margin-bottom: 10px;
+}
+        </style>
+        </head>
+        	<body>
+        	<header>
+        	<Br>
+        	<button class="botao-voltar" onclick="voltar()">Voltar</button>
+        <Br>
+        
+        <div class="container">
+        <h1>07:</h1>
+        
+        <img src="foguete.jpg" width="125" >
+        	
+        <h1>14:</h1>
+        
+        <img src="pixau.jpg" width="125" >
+        	
+        <h1>88:</h1>
+        
+        <img src="Igor.jpg" width="125" >
+        	
+        <h1>27:</h1>
+        
+        <img src="paulinho.jpg" width="112" >
+        	
+        <h1>66:</h1>
+        
+        <img src="lanche-sangue.jpg" width="125" >
+        	
+        <h1>51:</h1>
+        
+        <img src="Space-icone.jpg" width="125" >
+        </div>
+        </header>
+        
+        <script>
+    // A função 'voltar' redireciona explicitamente para a página inicial.
+	function voltar() {
+    	window.location.href = "spaceEnigma1.html";
+    }
+</script>
+</body>
+</html>
+
+     	
