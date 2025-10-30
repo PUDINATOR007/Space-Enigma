@@ -242,13 +242,11 @@
   function verificarCodigo() {
     const codigo = document.getElementById("codigoEntrada").value;
     
-    if (codigo === "0678") { // <-- aqui você define o código certo
-      alert("Código correto! Bem-vindo ao Space Enigma 🚀");
+    if (codigo === "0678") { 
       modal.style.display = "none";
-      // exemplo: redirecionar
-      // window.location.href = "enigma1.html";
+      window.location.href = "spaceEnigma1.html";
     } else {
-      alert("Código incorreto! ❌");
+      alert("Código incorreto!");
     }
   }
 </script>
